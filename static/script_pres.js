@@ -32,3 +32,9 @@ window.addEventListener('load', checkScroll);
 
 // Ajoute un écouteur d'événements pour le défilement
 document.addEventListener('scroll', checkScroll);
+
+
+function toggleMenu() {
+    const menu = document.querySelector('.dropdown-menu');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+}

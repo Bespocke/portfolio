@@ -48,6 +48,7 @@ html, body {
     font-family: Avenir, sans-serif;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
     overflow-x: hidden; /* Empêche le défilement horizontal */
 }
 
@@ -193,3 +194,52 @@ html, body {
 .indented-paragraph {
     text-indent: 40px; /* Ajustez la valeur pour le retrait souhaité */
 }   
+
+
+/* Styles pour le bouton de menu */
+.menu-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 10; /* Au-dessus des autres éléments */
+}
+
+.menu-button {
+    background-color: #00b75f00;
+    color: rgb(76, 76, 76);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.menu-button:hover {
+    background-color: #a1a1a13e;
+}
+
+/* Styles pour le menu déroulant */
+.dropdown-menu {
+    display: none; /* Cacher le menu par défaut */
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    width: 150px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
