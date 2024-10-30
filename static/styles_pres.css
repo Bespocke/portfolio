@@ -1,0 +1,195 @@
+/* #background {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("images/planète.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2; /* Place l'image derrière le contenu 
+    filter: blur(1px) brightness(0.5);
+    margin: 0px;
+}  */
+
+.intro-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    position: relative; /* Pour positionner le pseudo-élément */
+    overflow: hidden; /* Masquer les éventuels débordements */
+}
+
+.intro-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("images/planète.jpeg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(1px) brightness(0.5);
+    z-index: -1; /* Place l'image derrière le texte */
+}
+
+.intro-text {
+    font-size: 20px;
+     margin-left: 10px;
+    color: rgb(255, 255, 255);
+    position: relative; /* Pour s'assurer qu'il reste au-dessus du filtre */
+    z-index: 1;
+}
+
+html, body {
+    font-family: Avenir, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+
+.container {
+    min-height: calc(100vh + 5px); /* Hauteur de la fenêtre + 10 pixels */
+    width: 80%;
+    margin: 0 auto;
+}
+
+.subtitles {
+    font-size: 30px;
+    margin-left: 10px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+
+}
+
+.header {
+    display: flex;
+
+    align-items: center;
+    margin:20px 0;
+    color : rgb(0, 0, 0);
+}
+
+.name {
+    font-size: 40px;
+    margin-left: 30px;
+    color: rgb(255, 255, 255);
+}
+
+.profile-photo {
+    width: 400px; /* Ajuste la taille de ta photo */
+    height: 200px;
+    border-radius: 10%;
+    margin-left: 30px;
+}
+
+.presentation {
+    margin-top: 0px;
+    margin-left: 50px;
+    color : rgb(0, 0, 0);
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center; /* Centre le bouton horizontalement */
+    margin-top: 200px; /* Espace au-dessus du bouton */
+    margin-bottom: 100px; /* Espace sous le bouton pour le remonter par rapport au bas de la page */
+}
+
+.contact-button {
+    padding: 12px 25px;
+    font-size: 15px;
+    background-color: #00a5ca;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Transition douce */
+}
+
+.contact-button:hover {
+    background-color: #005c70;
+    transform: scale(1.05);
+}
+
+.block {
+    background-color: rgba(115, 115, 115, 0.355);
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px 0;
+    transition: transform 0.5s, opacity 0.5s;
+    opacity: 0; /* Invisible par défaut */
+    transform: translateX(100%); /* Commence hors de la vue, à gauche */
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.block ul {
+    list-style-type: none; /* Supprime les puces */
+    padding: 0; /* Supprime le padding par défaut */
+    margin: 40px; /* Supprime la marge par défaut */
+
+}
+
+.block ul li {
+    font-weight: bold; /* Texte en gras pour chaque élément de liste */
+}
+
+.block.left {
+    transform: translateX(-100%); /* Pour les blocs à droite */
+}
+
+.block.visible {
+    opacity: 1; /* Visible quand ajouté à la classe */
+    transform: translateX(0); /* Se déplace en place */
+}
+
+.timeline {
+    position: relative;
+    padding-left: 50px; /* Espace pour la timeline */
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 25px; /* Aligner la ligne avec les points */
+    width: 2px;
+    height: 100%;
+    background-color: #ddd; /* Couleur de la timeline */
+}
+
+/* Bloc de chaque point et texte */
+.timeline-point {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.timeline-point .date {
+    position: absolute;
+    left: -70px;
+    font-size: 14px;
+    color: #666;
+    transform: translateY(-50%); /* Centrage vertical */
+    text-align: center;
+}
+
+/* Style pour les points de la timeline */
+.timeline-point::before {
+    content: '';
+    position: absolute;
+    left: 22px;
+    width: 10px;
+    height: 10px;
+    background-color: #666;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.indented-paragraph {
+    text-indent: 40px; /* Ajustez la valeur pour le retrait souhaité */
+}   
