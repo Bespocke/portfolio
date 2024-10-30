@@ -9,7 +9,7 @@ document.getElementById('yes-button').addEventListener('click', function() {
 
     // Animation du titre
     title.style.fontSize = "2em";
-    title.style.transform = "translateY(-200px)";
+    title.style.transform = `translateY(-${window.innerHeight * 0.3}px)`;
 
     // Masquer le bouton "oui"
     yesButton.style.opacity = "0";
