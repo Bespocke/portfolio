@@ -17,7 +17,7 @@ document.getElementById('yes-button').addEventListener('click', function() {
 
     linkButtons.classList.remove('hidden');
     // Animation du conteneur des boutons pour remonter vers le centre
-    linkButtons.style.bottom = "50%"; // Remonte au centre de la page
+    linkButtons.style.bottom = "40%"; // Remonte au centre de la page
 
     // Apparition progressive des boutons avec décalage
     const buttons = Array.from(linkButtons.children);
