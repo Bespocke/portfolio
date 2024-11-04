@@ -243,3 +243,107 @@ html, body {
 .dropdown-menu a:hover {
     background-color: #f0f0f0;
 }
+
+
+
+/* Réglages pour les écrans de moins de 768px */
+@media (max-width: 768px) {
+    /* Alignement des éléments */
+    .intro-block {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .intro-text {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .name {
+        font-size: 24px;
+        margin: 0;
+    }
+
+    .container {
+        width: 90%; /* Réduit la largeur pour mieux s'adapter à l'écran */
+        padding: 10px;
+    }
+
+    .header {
+        display: block; /* Place l'image et le texte en colonne */
+        text-align: center;
+    }
+
+    .profile-photo {
+        width: 150px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .presentation {
+        margin: 10px auto;
+        padding: 10px;
+        text-align: justify;
+    }
+
+    .block {
+        padding: 10px;
+        margin: 20px 0;
+    }
+
+    .timeline-point {
+        flex-direction: column; /* Place la date et le bloc en colonne */
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    .timeline-point .date {
+        position: relative;
+        left: 0;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .button-wrapper {
+        margin: 50px 0; /* Réduit l'espacement autour du bouton */
+    }
+
+    .contact-button {
+        font-size: 16px;
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        width: 100%; /* Le menu déroulant prend toute la largeur sur mobile */
+        right: 0;
+    }
+}
+
+/* Réglages pour les écrans de moins de 480px */
+@media (max-width: 480px) {
+    .intro-text h2 {
+        font-size: 16px;
+    }
+
+    .profile-photo {
+        width: 120px;
+        height: auto;
+    }
+
+    .subtitles {
+        font-size: 24px;
+    }
+
+    .contact-button {
+        padding: 12px 20px;
+    }
+
+    .timeline-point .date {
+        font-size: 10px;
+    }
+
+    .dropdown-menu a {
+        font-size: 14px;
+    }
+}
