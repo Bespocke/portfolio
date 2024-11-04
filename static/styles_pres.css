@@ -15,6 +15,7 @@
 
 .intro-block {
     display: flex;
+    width : 100%;
     justify-content: center;
     align-items: center;
     height: 500px;
@@ -46,6 +47,7 @@
 
 html, body {
     font-family: Avenir, sans-serif;
+    width : 100%;
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
