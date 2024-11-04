@@ -20,7 +20,7 @@
     height: 500px;
     position: relative; /* Pour positionner le pseudo-élément */
     overflow: hidden; /* Masquer les éventuels débordements */
-    min-width: 100vw; /* Assure que le bloc prend toute la largeur de la fenêtre */
+    min-width: 100%; /* Assure que le bloc prend toute la largeur de la fenêtre */
 }
 
 .intro-block::before {
@@ -28,8 +28,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw; /* Prend 100% de la largeur de la fenêtre */
-    height: 100vh; /* Prend 100% de la hauteur de la fenêtre */
+    width: 100%; /* Prend 100% de la largeur de la fenêtre */
+    height: 100%; /* Prend 100% de la hauteur de la fenêtre */
     background-image: url("images/planète.jpeg");
     background-size: cover;
     background-position: center;
@@ -48,6 +48,7 @@
 
 html, body {
     font-family: Avenir, sans-serif;
+    height: 100%;
     width : 100%;
     margin: 0;
     padding: 0;
