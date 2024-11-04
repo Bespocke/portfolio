@@ -1,37 +1,60 @@
-let currentBlockIndex = 0; // Index du bloc actuellement visible
-const blocks = document.querySelectorAll('.block'); // Sélectionne tous les blocs
+let currentBlockIndex = 0;
+const blocks = document.querySelectorAll('.block');
+const introBlock = document.querySelector('.intro-block'); // Sélectionner le bloc d'introduction
+const presentationBlock = document.querySelector('.presentation'); // Sélectionner le bloc de présentation
+const introBlockHeight = introBlock.offsetHeight; // Récupérer la hauteur du bloc d'introduction
+const presentationBlockHeight = presentationBlock.offsetHeight; // Récupérer la hauteur du bloc de présentation
+const subblock = document.querySelector('.subtitles'); // Sélectionner sub
+const subheight = subblock.offsetHeight; // Récupérer la hauteur du bloc de sub
 
-let maxScrollThreshold = 1000; // Valeur maximale que tu souhaites pour le seuil
-let minScrollThreshold = 300; // Valeur minimale pour le seuil
-let delayOffset = 300;
-let scrollThreshold = maxScrollThreshold - (window.innerWidth / 2) + delayOffset; // Ajuste le seuil en fonction de la largeur de la fenêtre
 
-scrollThreshold = Math.max(minScrollThreshold, Math.min(scrollThreshold, maxScrollThreshold));
+// Fonction pour calculer le scrollThreshold en fonction de la hauteur de chaque bloc
+function getScrollThreshold() {
+    if (currentBlockIndex < blocks.length) {
+        const blockHeight = blocks[currentBlockIndex].getBoundingClientRect().height; // Hauteur du bloc actuel
+        let threshold = blockHeight; // Ajouter un supplément de 50 pixels
+
+        // Ajustement pour le bloc 5 (indice 4)
+        if (currentBlockIndex === 4) { // Les indices commencent à 0, donc 4 est le 5ème bloc
+            threshold += blockHeight + subheight; // Ajouter la hauteur complète du bloc "Parcours"
+        }
+
+        // Ajout de la hauteur du bloc d'introduction et du bloc de présentation pour le premier bloc
+        if (currentBlockIndex === 0) {
+            threshold += introBlockHeight / 2; // Ajoute la hauteur du bloc d'introduction
+            threshold += presentationBlockHeight; // Ajoute la hauteur du bloc de présentation
+        }
+
+        return threshold; // Retourne le seuil calculé
+    }
+    return 0; // Retourne 0 si tous les blocs ont été affichés
+}
+
+// Initialise le scrollThreshold
+let scrollThreshold = getScrollThreshold();
 
 // Fonction pour vérifier le défilement
 function checkScroll() {
-    // Vérifie si la position de défilement dépasse le seuil actuel
     if (window.scrollY > scrollThreshold) {
-        // Affiche chaque bloc un par un
         if (currentBlockIndex < blocks.length) {
             blocks[currentBlockIndex].classList.add('visible'); // Rendre le bloc visible
-            // Ajoute la classe 'right' pour les blocs avec un index impair
-            if (currentBlockIndex % 2 === 1) {
-                blocks[currentBlockIndex].classList.add('right');
-            }
             currentBlockIndex++; // Passer au bloc suivant
-            
-            // Met à jour le seuil pour le prochain bloc
-            scrollThreshold += window.innerHeight * 0.3;
+
+            // Recalcule le scrollThreshold pour le bloc suivant
+            scrollThreshold += getScrollThreshold();
         }
     }
 }
 
-// Appelle checkScroll() au chargement de la page pour afficher les blocs déjà visibles
-window.addEventListener('load', checkScroll);
+// Met à jour le scrollThreshold lors du redimensionnement de l'écran
+window.addEventListener('resize', () => {
+    scrollThreshold = getScrollThreshold();
+});
 
 // Ajoute un écouteur d'événements pour le défilement
 document.addEventListener('scroll', checkScroll);
+
+
 
 
 function toggleMenu() {

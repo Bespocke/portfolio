@@ -139,6 +139,27 @@ html, body {
     font-weight: bold; /* Texte en gras pour chaque élément de liste */
 }
 
+
+/* Ajustez les tailles de police pour les blocs */
+.block {
+    font-size: 1.2rem; /* Taille de police de base, peut être ajustée */
+}
+
+@media (max-width: 768px) {
+    .block {
+        font-size: 1rem; /* Réduit la taille de police sur les écrans plus petits */
+    }
+
+    .block h1 {
+        font-size: 1.4rem;
+    }
+
+    .block ul li {
+        font-size: 0.9em; /* Réduit encore plus la taille des éléments de la liste */
+    }
+}
+
+
 .block.left {
     transform: translateX(-100%); /* Pour les blocs à droite */
 }
