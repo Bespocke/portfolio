@@ -15,12 +15,12 @@
 
 .intro-block {
     display: flex;
-    width : 100%;
     justify-content: center;
     align-items: center;
     height: 500px;
     position: relative; /* Pour positionner le pseudo-élément */
     overflow: hidden; /* Masquer les éventuels débordements */
+    min-width: 100vw; /* Assure que le bloc prend toute la largeur de la fenêtre */
 }
 
 .intro-block::before {
@@ -28,8 +28,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw; /* Prend 100% de la largeur de la fenêtre */
+    height: 100vh; /* Prend 100% de la hauteur de la fenêtre */
     background-image: url("images/planète.jpeg");
     background-size: cover;
     background-position: center;
@@ -39,11 +39,12 @@
 
 .intro-text {
     font-size: 20px;
-     margin-left: 10px;
+    margin-left: 10px;
     color: rgb(255, 255, 255);
     position: relative; /* Pour s'assurer qu'il reste au-dessus du filtre */
     z-index: 1;
 }
+
 
 html, body {
     font-family: Avenir, sans-serif;
