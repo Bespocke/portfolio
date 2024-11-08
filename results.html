@@ -7,13 +7,17 @@
     <link rel="stylesheet" href="static/styles_res.css">
 </head>
 <body>
+    <br>
     <div class="container">
+        <input type="text" id="search-input" placeholder="Entrez votre recherche...">
+        <button onclick="performSearch()">Rechercher</button>
+    
         <h1>Résultats de la recherche</h1>
         
         <!-- Conteneur pour afficher les résultats -->
         <div id="results-container">Chargement des résultats...</div>
     </div>
-    <br><br>
+
     <div class="menu-container">
         <button class="menu-button" onclick="toggleMenu()">☰</button>
         <div class="dropdown-menu">

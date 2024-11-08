@@ -35,6 +35,14 @@ html, body {
     }
 }
 
+a {
+    color : #007bff;
+    text-decoration: none; 
+}
+
+a:hover{
+    color : #0d0b3c;
+}
 
 
 
@@ -109,13 +117,14 @@ button:hover {
     display: none; /* Cacher le menu par défaut */
     position: absolute;
     top: 50px;
+    text-align: center;
     right: 0;
     background-color: white;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     overflow: hidden;
     width: auto;
-    min-width: 80px;
+    min-width: 110px;
 }
 
 .dropdown-menu a {

@@ -96,7 +96,6 @@ if (window.location.href.includes('results.html')) {
                             link.href = 'res/' + filePath;              // Associer le lien au chemin relatif
                             link.target = '_blank';                     // Ouvrir dans un nouvel onglet
                             link.style.textDecoration = 'none';         // Style de lien
-                            link.style.color = '#007bff';               // Couleur du lien (modifiable)
 
                             return link; // Retourner le lien
                         });

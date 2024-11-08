@@ -60,6 +60,15 @@ html, body {
     margin: 0 auto;
 }
 
+.search-container {
+    width: 80%; /* Largeur de la barre */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centre le contenu horizontalement */
+    margin: 10px auto; /* Centre l'élément sur la page */
+}
+
+
 .subtitles {
     font-size: 30px;
     margin-left: 10px;
@@ -248,12 +257,13 @@ html, body {
     position: absolute;
     top: 50px;
     right: 0;
+    text-align: center;
     background-color: white;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     overflow: hidden;
     width: auto;
-    min-width: 80px;
+    min-width: 110px;
 }
 
 .dropdown-menu a {
@@ -267,8 +277,6 @@ html, body {
 .dropdown-menu a:hover {
     background-color: #f0f0f0;
 }
-
-
 
 /* Réglages pour les écrans de moins de 768px */
 @media (max-width: 768px) {
