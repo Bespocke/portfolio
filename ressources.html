@@ -7,22 +7,23 @@
     <link rel="stylesheet" href="static/styles_res.css">
 </head>
 <body>
-    <br><br>
-    <div class="container">
-        <div class="animated-text"><h1>Rechercher un fichier</h1></div>
-        <br>
-        <input type="text" id="search-input" placeholder="Entrez votre recherche...">
-        <button onclick="performSearch()">Rechercher</button>
+    <!-- Bandeau avec liens fixes -->
+    <div id="top-banner">
+        <!-- Liens à droite -->
+        <div class="right-links">
+            <a href="presentation.html">Curriculum</a>
+            <a href="projets.html">Projets</a>
+        </div>
     </div>
 
-    <div class="menu-container">
-        <button class="menu-button" onclick="toggleMenu()">☰</button>
-        <div class="dropdown-menu">
-            <a href="index.html">Accueil</a>
-            <a href="https://bespocke.github.io/jupyter-lite/lab/index.html">Projets</a>
-            <a href="presentation.html">CV</a>
-         </div>
+    <div id="recherche" class="section">
+        <h1>Rechercher un document</h1>
+        <p>Chercher par mots clés. Des livres complets et des sujets sont aussi disponibles</p>
+        <input type="text" id="search-input" class="search-input" placeholder="Entrez votre recherche...">
+        <button class="button" onclick="performSearch()">Rechercher</button>
     </div>
+    <div id="results-container" class="res-section"></div>
+    <br>
     <script src="static/script_res.js"></script>
 </body>
 </html>

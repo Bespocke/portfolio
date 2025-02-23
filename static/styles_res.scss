@@ -1,0 +1,187 @@
+// Variables
+$main-font-family: "Arial Black", sans-serif;
+$main-color: #ffffff;
+$btn-text-color: #000000;
+$button-background: #ffffff;
+$btn-border: #445a70;
+$button-hover-background: #1174df;
+$section-background: #000000; // Fond des sections
+$section-alt-background: #000000; // Fond alternatif pour les sections
+$top-banner-bg: transparent; // Gris pour le bandeau
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+}
+
+
+// Bandeau fixe en haut sur toute la largeur
+#top-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $top-banner-bg;
+    padding: 0.8rem 2%;  // Padding flexible pour mieux s'adapter
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-end;  // Les éléments sont alignés à droite
+    align-items: center;
+    box-sizing: border-box;
+    opacity: 0.9;
+
+    // Conteneur des liens à droite
+    .right-links {
+        display: flex;
+        gap: 1.5rem;  // Ajuster l'espacement entre les liens
+    }
+
+    a {
+        font-family: $main-font-family;
+        color: $main-color;
+        text-decoration: none;
+
+        &.active {
+            color: #e73a9a;
+        }
+    }
+}
+
+
+
+// Section générique pour chaque bloc
+.section {
+    padding: 8vw 0; /* Supprime le padding horizontal */
+    left: 0;
+    width: 100vw; /* Prend toute la largeur */
+    margin: 4vw 0;
+    background-color: $section-background;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    &:nth-child(even) {
+        background-color: $section-alt-background;
+    }
+
+    h1 {
+        font-size: 4vw;
+        font-family: $main-font-family;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 2vw;
+    }
+
+    p {
+        font-family: $main-font-family;
+        font-size: 1.5vw;
+        margin-bottom: 4vw;
+    }
+
+    .button {
+        position: relative; /* Ajouté pour gérer le pseudo-élément */
+        background-color: $button-background;
+        color: $btn-text-color;
+        font-family: 'Arial Black', sans-serif;
+        font-size: 1rem;
+        padding: 12px 24px;
+        border: 3px solid $btn-border;
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease-in-out;
+        display: inline-block; /* Permet de s'assurer que le bouton a bien une taille */
+        text-decoration: none;
+    }
+
+    .button:hover {
+        background-color: $button-hover-background;
+        color: black;
+        transform: scale(1.1);
+        border: 3px solid $button-hover-background;
+        box-shadow: 0 0 15px $button-hover-background;
+    }
+
+    .search-input{
+        font-family: 'Arial Black', sans-serif;
+        font-size: 1rem;
+        padding: 12px 24px;
+        border: 3px solid $btn-border;
+        border-radius: 4px;
+        letter-spacing: 0.5px;
+        margin-right: 1vw;
+    }
+}
+
+
+// Styles pour la section de résultats
+.res-section {
+    font-family: $main-font-family;
+    padding: 0 2vw; /* Supprime le padding horizontal */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+    // Lorsque la section devient visible
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    $table-border: #445a70; /* Couleur de la bordure */
+    $table-radius: 4px; /* Rayon pour arrondir les bords */
+
+    table {
+        width: 100%; /* Prendre toute la largeur disponible */
+        margin-top: 20px; /* Espacement au-dessus du tableau */
+        border: 3px solid $table-border; /* Bordure autour du tableau */
+        border-radius: $table-radius; /* Coins arrondis pour le tableau */
+        border-collapse: separate; /* Séparer les bordures des cellules */
+        border-spacing: 0; /* Aucun espacement entre les cellules */
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #0800ff;
+    }
+
+    th, td {
+        padding: 8px; /* Espacement à l'intérieur des cellules */
+        text-align: left; /* Alignement à gauche des textes dans les cellules */
+    }
+
+    th {
+        color: white;
+        background-color: rgb(0, 0, 0); /* Couleur de fond des cellules */
+        font-size: 1.5vw;
+    }
+
+    td {
+        color: white;
+        background-color: rgb(0, 0, 0); /* Couleur de fond des cellules */
+    }
+
+    td:hover {
+        background-color: rgb(17, 17, 17); /* Couleur de fond des cellules */
+    }
+    
+}
+
+
+
+
+

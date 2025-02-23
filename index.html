@@ -3,21 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
+    <title>Page d'Accueil</title>
     <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
-    <div id="background"></div> <!-- Conteneur pour l'image de fond -->
-
-    <div id="container">
-        <h1 id="shiny-title">Besoin d’aide ?</h1>
-        <button id="yes-button">Oui</button>
-        <div id="link-buttons" class="hidden">
-            <button onclick="window.location.href='presentation.html'">À Propos De Moi</button>
-            <button onclick="window.location.href='https://bespocke.github.io/jupyter-lite/lab/index.html'">Mes Projets</button>
-            <button onclick="window.location.href='ressources.html'">Ressources MPSI/MP*</button>
+    <!-- Bandeau avec liens fixes -->
+    <div id="top-banner">
+        <!-- Liens à droite -->
+        <div class="right-links">
+            <a href="#ressources" class="scroll-link">Ressources</a>
+            <a href="#bio" class="scroll-link">Curriculum</a>
+            <a href="#projets" class="scroll-link">Projets</a>
+        </div>
     </div>
+    
+
+    <!-- Sections défilantes -->
+
+    <div id="ressources" class="section">
+        <h1>Ressources de Prépa</h1>
+        <p>Accédez à des ressources utiles en classe de MP*. Pour voir plus de documents, cliquez sur le lien ci-dessous.</p>
+        <div class="content-container">
+            <a href="ressources.html" class="button">Voir les ressources</a>
+        </div>
+    </div>
+
+    <div id="bio" class="section">
+        <h1>à propos de moi</h1>
+        <p>PASSIONÉ DE SCIENCES ET ACTUELLEMENT ÉTUDIANT À L'ENSTA BRETAGNE</p>
+        <a href="presentation.html" class="button">mon CV</a>
+    </div>
+    <div id="projets" class="section">
+        <h1>Mes Projets</h1>
+        <p>Découvrez mes réalisations et projets.</p>
+        <div class="content-container">
+            <a href="projets.html" class="button">Voir mes projets</a>
+        </div>
+    </div>
+    
     <script src="static/script.js"></script>
 </body>
 </html>
-

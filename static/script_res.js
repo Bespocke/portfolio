@@ -1,10 +1,3 @@
-function performSearch() {
-    const searchTerm = document.getElementById('search-input').value;
-    if (searchTerm) {
-        // Rediriger vers la page de résultats avec le terme de recherche dans l'URL
-        window.location.href = 'results.html?query=' + encodeURIComponent(searchTerm);
-    }
-}
 
 // Ajouter un écouteur d'événements sur le champ de saisie
 document.addEventListener('DOMContentLoaded', function() {
@@ -22,22 +15,81 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+const sections = document.querySelectorAll(".section");
+
+// Intersection Observer pour l'animation d'apparition des sections
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        }
+    });
+}, { threshold: 0.4 });
+
+sections.forEach(section => observer.observe(section));
+
+// Détection de la section active et mise à jour des liens de navigation
+let lastActive = ""; // Stocke la dernière section active pour éviter des mises à jour inutiles
+
+window.addEventListener("scroll", () => {
+    requestAnimationFrame(() => {
+        let current = "";
+
+        // Calcul de la position de la page et détection de la section active
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+
+            // Ajuster le seuil en modifiant cette ligne
+            if (window.scrollY >= sectionTop - sectionHeight / 5) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        // Vérifier si on est tout en bas de la page et activer la dernière section
+        const lastSection = sections[sections.length - 1];
+        const lastSectionTop = lastSection.offsetTop;
+        const lastSectionHeight = lastSection.offsetHeight;
+
+        if (window.scrollY + window.innerHeight >= lastSectionTop + lastSectionHeight) {
+            current = lastSection.getAttribute("id");
+        }
+
+        // Si on est tout en haut de la page, ne pas activer de liens
+        if (window.scrollY < 10) {
+            current = null; // Utilisez `null` pour éviter d'ajouter une chaîne vide
+        }
+
+        // Mise à jour des liens de navigation
+        if (current !== lastActive) {
+            lastActive = current;
+            scrollLinks.forEach(link => {
+                link.classList.remove("active");
+                if (current && link.getAttribute("href").includes(current)) { // Ajoutez la vérification `current`
+                    link.classList.add("active");
+                }
+            });
+        }
+    });
+});
 
 
-// Dans results.html, récupérer le terme de recherche et afficher les résultats
-if (window.location.href.includes('results.html')) {
-    const params = new URLSearchParams(window.location.search);
-    const query = params.get('query');
+
+function performSearch() {
+    const searchTerm = document.getElementById('search-input').value;
     const resultsContainer = document.getElementById('results-container');
-
-    if (query) {
+    
+    if (searchTerm) {
+        // Appliquer l'animation visible dès qu'une recherche est effectuée
+        resultsContainer.classList.add('visible');
+        
         // Charger le fichier JSON contenant tous les fichiers
         fetch('scrap.json')
             .then(response => response.json())
             .then(files => {
                 // Filtrer les fichiers pour ceux qui contiennent le terme de recherche
                 const matchedFiles = files.filter(file => 
-                    file.toLowerCase().includes(query.toLowerCase())
+                    file.toLowerCase().includes(searchTerm.toLowerCase())
                 );
 
                 // Effacer les anciens résultats
@@ -63,16 +115,16 @@ if (window.location.href.includes('results.html')) {
                     const headerRow = document.createElement('tr');
                     const headerCell1 = document.createElement('th');
                     headerCell1.textContent = 'Dossier';
-                    headerCell1.style.border = '1px solid #ddd'; // Bordure pour l'en-tête
+                    headerCell1.style.border = '2px solid #445a70'; // Bordure pour l'en-tête
                     headerCell1.style.padding = '8px'; // Espace intérieur pour l'en-tête
                     headerRow.appendChild(headerCell1);
 
                     const headerCell2 = document.createElement('th');
                     headerCell2.textContent = 'Fichiers';
-                    headerCell2.style.border = '1px solid #ddd'; // Bordure pour l'en-tête
+                    headerCell2.style.border = '2px solid #445a70'; // Bordure pour l'en-tête
                     headerCell2.style.padding = '8px'; // Espace intérieur pour l'en-tête
                     headerRow.appendChild(headerCell2);
-                    
+
                     table.appendChild(headerRow);
 
                     // Remplir le tableau avec les données groupées
@@ -81,11 +133,11 @@ if (window.location.href.includes('results.html')) {
                         const dirCell = document.createElement('td');
                         const dirName = dir.substring(dir.lastIndexOf('/') + 1); // Obtenir seulement le nom du dossier
                         dirCell.textContent = dirName; // Afficher le nom du dossier
-                        dirCell.style.border = '1px solid #ddd'; // Bordure pour chaque cellule
+                        dirCell.style.border = '2px solid #445a70'; // Bordure pour chaque cellule
                         dirCell.style.padding = '8px'; // Espace intérieur
 
                         const filesCell = document.createElement('td');
-                        filesCell.style.border = '1px solid #ddd'; // Bordure pour chaque cellule
+                        filesCell.style.border = '2px solid #445a70'; // Bordure pour chaque cellule
                         filesCell.style.padding = '8px'; // Espace intérieur
 
                         // Créer les liens de fichiers
@@ -123,10 +175,4 @@ if (window.location.href.includes('results.html')) {
                 resultsContainer.textContent = 'Erreur lors du chargement des fichiers.';
             });
     }
-}
-
-
-function toggleMenu() {
-    const menu = document.querySelector('.dropdown-menu');
-    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
 }

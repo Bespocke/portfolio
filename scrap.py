@@ -13,7 +13,7 @@ VALID_EXTENSIONS = {
     '.markdown', '.md',  # Fichiers Markdown
     '.html', '.css',  # Fichiers web
     '.ppt',  # Ancien format PowerPoint
-    '.doc',  # Ancien format Word
+    '.docx',  # Ancien format Word
     '.ods',  # Fichiers OpenDocument Spreadsheet
     '.odt',  # Fichiers OpenDocument Text
 }

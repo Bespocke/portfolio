@@ -1,0 +1,145 @@
+@charset "UTF-8";
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+}
+
+#top-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.8rem 2%;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  box-sizing: border-box;
+  opacity: 0.9;
+}
+#top-banner .right-links {
+  display: flex;
+  gap: 1.5rem;
+}
+#top-banner a {
+  font-family: "Arial Black", sans-serif;
+  color: #ffffff;
+  text-decoration: none;
+}
+#top-banner a.active {
+  color: #e73a9a;
+}
+
+.section:nth-of-type(1) {
+  background-color: #000000;
+}
+
+.section:nth-of-type(2) {
+  background-color: #000000;
+}
+
+.section:nth-of-type(3) {
+  background-color: #000000;
+}
+
+.section:nth-of-type(4) {
+  background-color: #000000;
+}
+
+.section:nth-of-type(5) {
+  background-color: #000000;
+}
+
+.section {
+  padding: 5vw 0; /* Supprime le padding horizontal */
+  left: 0;
+  width: 100%; /* Prend toute la largeur */
+  margin: 0 0;
+  background-color: #8c6060;
+  color: white;
+  text-align: center;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.section h1 {
+  font-size: 4vw;
+  font-family: "Arial Black", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2vw;
+}
+.section p {
+  font-family: "Arial Black", sans-serif;
+  font-size: 1.5vw;
+  margin-bottom: 4vw;
+}
+.section .button {
+  position: relative; /* Ajouté pour gérer le pseudo-élément */
+  background-color: #9fb5cd;
+  color: #000000;
+  font-family: "Arial Black", sans-serif;
+  font-size: 1.5rem;
+  padding: 12px 24px;
+  border: 3px solid #445a70;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease-in-out;
+  display: inline-block; /* Permet de s'assurer que le bouton a bien une taille */
+  text-decoration: none;
+}
+.section .button:hover {
+  background-color: #1174df;
+  color: black;
+  transform: scale(1.1);
+  border: 3px solid #1174df;
+  box-shadow: 0 0 15px #1174df;
+}
+.section img {
+  object-position: center; /* Centrer l'image */
+  display: block; /* Enlève les marges par défaut autour de l'image */
+  width: auto; /* Largeur de l'écran */
+  height: 70vh; /* Hauteur de l'écran */
+  margin: 0; /* Enlève les marges */
+  padding: 0; /* Enlève le padding */
+}
+.section .content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+  margin-top: 2vw;
+}
+.section .content-container .side-img {
+  transition: transform 0.4s ease-in-out;
+}
+.section .content-container .side-img.left {
+  transform: translateX(-10px);
+}
+.section .content-container .side-img.right {
+  transform: translateX(10px);
+}
+.section .content-container .side-img:hover {
+  transform: scale(1.1);
+}
+
+#animation {
+  background-color: black; /* Fond noir */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh; /* Hauteur de l'écran */
+  width: 100%; /* Largeur de l'écran */
+  margin: 0; /* Enlève les marges */
+  padding: 0; /* Enlève le padding */
+}
+
+/*# sourceMappingURL=styles_proj.css.map */
